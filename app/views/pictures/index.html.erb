@@ -1,2 +1,18 @@
-<h1>Pictures#index</h1>
-<p>Find me in app/views/pictures/index.html.erb</p>
+<h1>ブログ一覧</h1>
+<table>
+  <tr>
+    <th>タイトル</th>
+    <th>内容</th>
+  </tr>
+<% @pictures.each do |picture| %>
+  <tr>
+    <td><%= picture.title %></td>
+    <td><%= picture.content %></td>
+    <td><%= link_to '詳細を確認する', picture_path(picture.id)%></td>
+  </tr>
+<% end %>
+</table>
+<br>
+<%= link_to 'DIVE INTO CODEのページへ', 'https://diveintocode.jp/'  %>
+<br>
+<%= link_to 'ピクチャ一覧画面に戻る', '/pictures' %>
