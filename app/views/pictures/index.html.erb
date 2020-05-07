@@ -1,21 +1,24 @@
-<h1>投稿一覧</h1>
-<p><%= notice %></p>
-<table>
-  <tr>
-    <th>タイトル</th>
-    <th>内容</th>
-    <th>投稿者</th>
-  </tr>
-<% @pictures.each do |picture| %>
-  <tr>
-    <td><%= picture.title %></td>
-    <td><%= picture.content %></td>
-    <td><%= picture.user.name %>の投稿</td>
-    <td><%= link_to '詳細を確認する', picture_path(picture.id)%></td>
-    <td><%= link_to "投稿を編集する", edit_picture_path(picture.id), data: { confirm: '本当に編集していいですか？' } %></td>
-    <td><%= link_to '投稿を削除する', picture_path(picture.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
-  </tr>
-<% end %>
-</table>
-<br>
+<h3>投稿一覧</h3>
 <%= link_to '新しくブログを投稿する', new_picture_path %>
+  <div id="wrapper">
+    <div id="contents">
+      <br>
+      <table>
+        <tr>
+          <th>タイトル</th>
+          <th>内容</th>
+          <th>投稿者</th>
+        </tr>
+      <% @pictures.each do |picture| %>
+        <tr>
+          <td><%= picture.title.truncate(20, omission: '...') %></td>
+          <td><%= picture.content.truncate(24, omission: '...') %></td>
+          <td><%= picture.user.name %>の投稿</td>
+          <td><%= link_to '詳細を確認する', picture_path(picture.id)%></td>
+          <td><%= link_to "投稿を編集する", edit_picture_path(picture.id), data: { confirm: '本当に編集していいですか？' } %></td>
+          <td><%= link_to '投稿を削除する', picture_path(picture.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
