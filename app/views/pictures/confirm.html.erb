@@ -6,7 +6,7 @@
   <p>タイトル:<%= @picture.title %></p>
   <p>本文:<%= @picture.content %></p>
   <p>
-    <strong>Image:</strong>
+    <strong>Picture:</strong>
     <%= image_tag @picture.image.url if @picture.image? %>
   </p>
   <%= form.submit  "登録する" %>
