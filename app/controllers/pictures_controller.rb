@@ -49,7 +49,7 @@ before_action :set_picture, only: [:show, :edit, :update, :destroy]
   private
 
   def picture_params
-    params.require(:picture).permit(:title, :content, :image, :image_cache)
+    params.require(:picture).permit(:title, :content, :image, :image_cache, :remove_image)
   end
 
   def set_picture
